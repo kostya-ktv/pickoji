@@ -1,9 +1,11 @@
 "use client";
-import cards from "@/util/data.json";
+
 import Input from "@/components/Input";
 import Cards from "./Cards";
+import useFilterCards from "./hooks/useFilterCards";
 
 const EmojiSearch = () => {
+  const { filterState, filteredCards, setFilterState } = useFilterCards();
   return (
     <div
       className="
@@ -17,8 +19,12 @@ const EmojiSearch = () => {
     overflow-auto
     "
     >
-      <Input placeholder="Search for a keywords..." />
-      <Cards cards={cards.splice(0, 10)} />
+      <Input
+        onChange={(e) => setFilterState(e.target.value)}
+        value={filterState}
+        placeholder="Search for a keywords..."
+      />
+      <Cards cards={filteredCards} />
     </div>
   );
 };

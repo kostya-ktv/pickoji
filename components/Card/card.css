@@ -1,0 +1,12 @@
+.copied {
+    opacity: 0;
+    position: absolute;
+    background-color: red;
+
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+    background-color: var(--bgColor);
+    color: var(--fontColor);
+
+}

@@ -5,10 +5,12 @@ import "./box.css";
 interface BoxProps {
   className?: string;
   children: React.ReactNode;
+  onClick?: Function;
 }
-const Box: React.FC<BoxProps> = ({ className, children }) => {
+const Box: React.FC<BoxProps> = ({ className, onClick, children }) => {
   return (
     <div
+      onClick={() => onClick && onClick()}
       className={twMerge(
         `
         box

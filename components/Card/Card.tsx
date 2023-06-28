@@ -1,16 +1,28 @@
 "use client";
-
+import { twMerge } from "tailwind-merge";
 import { ICard } from "@/util/types";
 import Box from "../Box/Box";
+import { useState } from "react";
+import "./card.css";
 
 interface Props {
   card: ICard;
 }
 const Card: React.FC<Props> = ({ card }) => {
-  const { keywords, symbol, title } = card;
+  const { symbol, title } = card;
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const handleClick = async (emoji: string) => {
+    setIsCopied(true);
+    await navigator.clipboard.writeText(emoji);
+    const timeout = setTimeout(() => setIsCopied(false), 2000);
+    return () => clearTimeout(timeout);
+  };
   return (
     <Box
+      onClick={() => !isCopied && handleClick(symbol)}
       className="
+      relative
     aspect-square
     w-[100px]
     sm:w-[150px]
@@ -51,6 +63,21 @@ const Card: React.FC<Props> = ({ card }) => {
       >
         {title}
       </span>
+      <div
+        className={twMerge(
+          `
+      copied
+      flex
+      items-center
+      text-[13px]
+      lg:text-[18px]
+ 
+      justify-center`,
+          isCopied && "animate-wiggle"
+        )}
+      >
+        Copied
+      </div>
     </Box>
   );
 };

@@ -3,7 +3,11 @@
 import Box from "./Box/Box";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends React.HTMLAttributes<HTMLInputElement> {}
+interface Props
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {}
 const Input: React.FC<Props> = ({ className, ...restProps }) => {
   return (
     <Box
