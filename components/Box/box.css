@@ -1,0 +1,3 @@
+.box {
+    box-shadow: -5px -5px 15px var(--shadowColorTopLeft), 5px 5px 15px var(--shadowColorBottomRight);
+}
