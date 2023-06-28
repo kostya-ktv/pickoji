@@ -12,6 +12,7 @@ const Box: React.FC<BoxProps> = ({ className, children }) => {
       className={twMerge(
         `
         box
+        relative
         bg-[color:var(--bgElement)]
         p-2
         rounded-lg

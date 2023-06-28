@@ -3,12 +3,12 @@ import Moon from "@/public/images/moon.svg";
 import Sun from "@/public/images/sun.svg";
 import Box from "@/components/Box/Box";
 import Image from "next/image";
-import { useCallback, useContext, useMemo } from "react";
-import { ThemeContext } from "@/providers/ThemeProvider";
+import { useCallback, useMemo } from "react";
+import { useThemeContext } from "@/providers/ThemeProvider";
 import { twMerge } from "tailwind-merge";
 
 const ThemeToggle = () => {
-  const { setTheme, theme } = useContext(ThemeContext);
+  const { setTheme, theme } = useThemeContext();
   const isDark = useMemo(() => theme === "dark", [theme]);
 
   const handleClick = useCallback(

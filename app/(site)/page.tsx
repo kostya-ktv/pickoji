@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
 import Header from "./components/Header";
 import ThemeToggle from "./components/ThemeToggle";
-import { ThemeContext } from "@/providers/ThemeProvider";
+import { useThemeContext } from "@/providers/ThemeProvider";
 import EmojiSearch from "./components/EmojiSearch";
+import GithubStat from "./components/GithubStat";
 
 export default function Home() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useThemeContext();
   return (
     <div
       className={`app ${theme} 
@@ -17,8 +17,9 @@ export default function Home() {
       flex
       justify-center`}
     >
-      <div className="w-[100%] md:w-[500px] flex flex-col gap-y-5">
+      <div className="w-[100%] md:w-[500px] items-center flex flex-col gap-y-5">
         <Header />
+        <GithubStat />
         <ThemeToggle />
         <EmojiSearch />
       </div>

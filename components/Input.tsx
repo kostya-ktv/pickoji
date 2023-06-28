@@ -9,6 +9,7 @@ const Input: React.FC<Props> = ({ className, ...restProps }) => {
     <Box
       className="
       p-0
+      w-[100%]
       border-[color:var(--bgElement)]
       transition-colors
       delay-200
@@ -21,7 +22,7 @@ const Input: React.FC<Props> = ({ className, ...restProps }) => {
         className={twMerge(
           `
           bg-[color:var(--bgElement)]
-          w-full 
+          w-[100%] 
           px-5
           py-2   
           rounded-md

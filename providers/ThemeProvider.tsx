@@ -1,12 +1,14 @@
 "use client";
-import { createContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 type ThemeType = "light" | "dark";
 
-export const ThemeContext = createContext<{
+const ThemeContext = createContext<{
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
 }>(null as any);
+
+export const useThemeContext = () => useContext(ThemeContext);
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

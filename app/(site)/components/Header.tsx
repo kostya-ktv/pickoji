@@ -4,10 +4,12 @@ const Header = () => {
   return (
     <div className="flex flex-col items-center gap-y-3">
       <div className="flex gap-x-2 text-3xl font-bold">
-        <span>Emoji Search </span>
+        <span>Pickoji</span>
         <span>🚀</span>
       </div>
-      <span>An emoji tool made with Next JS.</span>
+      <span className="text-center">
+        An emoji search tool, made with <strong>Next JS & TailwindCSS</strong>.
+      </span>
     </div>
   );
 };
