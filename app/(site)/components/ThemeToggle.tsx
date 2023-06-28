@@ -21,14 +21,24 @@ const ThemeToggle = () => {
     <div
       onClick={handleClick}
       className=" 
+      absolute
+      top-1
+      right-1
       flex 
-      flex-col
+     
       justify-center
       items-center
       cursor-pointer
-      gap-y-2
+      gap-x-2
     "
     >
+      <p
+        className="text-[10px]
+    
+      "
+      >
+        Switch to your preferred theme
+      </p>
       <Box className="rounded-full">
         <div className="flex gap-x-3">
           <div
@@ -47,7 +57,6 @@ const ThemeToggle = () => {
           </div>
         </div>
       </Box>
-      <p className="text-[10px]">Switch to your preferred theme.</p>
     </div>
   );
 };
