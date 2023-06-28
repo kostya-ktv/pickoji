@@ -25,9 +25,9 @@ const Card: React.FC<Props> = ({ card }) => {
       relative
     aspect-square
     w-[100px]
-    sm:w-[150px]
-    md:w-[170px]
-    lg:w-[190px]
+    sm:w-[120px]
+    md:w-[130px]
+    lg:w-[110px]
     flex
     flex-col
     justify-center
@@ -53,9 +53,9 @@ const Card: React.FC<Props> = ({ card }) => {
         font-semibold
         text-center
         text-[11px]
-        sm:text-[14px]
-        md:text-[15px]
-        lg:text-[19px]
+
+        md:text-[12px]
+        lg:text-[13px]
         w-[100%]
         truncate
         relative

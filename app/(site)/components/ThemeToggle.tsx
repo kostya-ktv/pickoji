@@ -22,8 +22,8 @@ const ThemeToggle = () => {
       onClick={handleClick}
       className=" 
       absolute
-      top-1
-      right-1
+      top-2
+      right-2
       flex 
      
       justify-center

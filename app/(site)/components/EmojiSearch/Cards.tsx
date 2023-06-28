@@ -33,12 +33,12 @@ const Cards: React.FC<Props> = ({ cards }) => {
     <div
       ref={ref}
       className="
-    overflow-auto
-    flex flex-wrap
-    gap-x-5
-    gap-y-5
-    justify-evenly
-    p-4
+      overflow-auto
+      flex flex-wrap
+      gap-x-5
+      gap-y-5
+      justify-evenly
+      p-4
     "
     >
       {cards.map((card) => (
