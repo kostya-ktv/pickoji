@@ -4,6 +4,7 @@
 
 [Live](https://pickoji.vercel.app/)
 
+![alt text](https://github.com/kostya-ktv/pickoji/blob/main/public/pickoji-dark.png?raw=true)
 ![alt text](https://github.com/kostya-ktv/pickoji/blob/main/public/pickoji.png?raw=true)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
