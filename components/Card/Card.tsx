@@ -4,23 +4,17 @@ import { ICard } from "@/util/types";
 import Box from "../Box/Box";
 import { useState } from "react";
 import "./card.css";
+import useSaveEmoji from "@/components/Card/hooks/useSaveEmoji";
 
 interface Props {
   card: ICard;
 }
 const Card: React.FC<Props> = ({ card }) => {
   const { symbol, title } = card;
-  const [isCopied, setIsCopied] = useState<boolean>(false);
-
-  const handleClick = async (emoji: string) => {
-    setIsCopied(true);
-    await navigator.clipboard.writeText(emoji);
-    const timeout = setTimeout(() => setIsCopied(false), 2000);
-    return () => clearTimeout(timeout);
-  };
+  const {isCopied, handleSave} = useSaveEmoji()
   return (
     <Box
-      onClick={() => !isCopied && handleClick(symbol)}
+      onClick={() => !isCopied && handleSave(card)}
       className="
       relative
     aspect-square

@@ -6,6 +6,7 @@ import useFilterCards from "./hooks/useFilterCards";
 
 const EmojiSearch = () => {
   const { filterState, filteredCards, setFilterState } = useFilterCards();
+
   return (
     <div
       className="

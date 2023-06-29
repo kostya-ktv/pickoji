@@ -5,6 +5,7 @@ import { useThemeContext } from "@/providers/ThemeProvider";
 import EmojiSearch from "./components/EmojiSearch/EmojiSearch";
 import GithubStat from "./components/GithubStat";
 import Footer from "./components/Footer";
+import History from "@/app/(site)/components/History";
 
 export default function Home() {
   const { theme } = useThemeContext();
@@ -24,8 +25,10 @@ export default function Home() {
       <div className="w-[100%] md:w-[500px] items-center flex flex-col gap-y-5">
         <Header />
         <GithubStat />
-        <ThemeToggle />
+
+        <History/>
         <EmojiSearch />
+        <ThemeToggle />
       </div>
       <Footer />
     </div>

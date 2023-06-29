@@ -6,13 +6,18 @@ import Image from "next/image";
 import { useCallback, useMemo } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import { twMerge } from "tailwind-merge";
+import {StorageService} from "@/services/storage.service";
 
 const ThemeToggle = () => {
   const { setTheme, theme } = useThemeContext();
   const isDark = useMemo(() => theme === "dark", [theme]);
 
   const handleClick = useCallback(
-    () => setTheme(isDark ? "light" : "dark"),
+    () => {
+      const toSet = isDark ? "light" : "dark"
+      setTheme(toSet)
+      StorageService.saveTheme(toSet)
+    },
     [isDark, setTheme]
   );
 
@@ -24,8 +29,7 @@ const ThemeToggle = () => {
       absolute
       top-2
       right-2
-      flex 
-     
+      flex
       justify-center
       items-center
       cursor-pointer
