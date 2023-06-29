@@ -1,5 +1,5 @@
 import {useHistoryCards} from "@/providers/EmojiHistoryProvider";
-import Box from "@/components/Box/Box"
+import HistoryCard from "@/app/(site)/components/History/HistoryCard";
 
 const History = () => {
     const {emojiHistory} = useHistoryCards()
@@ -8,7 +8,7 @@ const History = () => {
         <div className="flex flex-col">
             <p className="text-center text-[10px] text-[color:var(--fontColor)]">History:</p>
             <div className="flex gap-x-2">
-                {emojiHistory.map((emoji,i) => <Box className="" key={i}>{emoji.symbol}</Box>)}
+                {emojiHistory.map((emoji,i) => <HistoryCard emojiCard={emoji} key={i}/>)}
             </div>
         </div>
     ) : null

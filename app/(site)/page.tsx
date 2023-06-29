@@ -5,7 +5,7 @@ import { useThemeContext } from "@/providers/ThemeProvider";
 import EmojiSearch from "./components/EmojiSearch/EmojiSearch";
 import GithubStat from "./components/GithubStat";
 import Footer from "./components/Footer";
-import History from "@/app/(site)/components/History";
+import History from "@/app/(site)/components/History/History";
 
 export default function Home() {
   const { theme } = useThemeContext();
