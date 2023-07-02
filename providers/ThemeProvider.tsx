@@ -1,6 +1,6 @@
 "use client";
 import {createContext, useContext, useEffect, useMemo, useState} from "react";
-import {StorageService} from "@/services/storage.service";
+import getStorage from "@/services/getStorage";
 
 export type ThemeType = "light" | "dark";
 
@@ -18,7 +18,7 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   const toProvide = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
   useEffect(() => {
-    const storedTheme = StorageService.getTheme()
+    const storedTheme = getStorage().getTheme()
     setTheme(storedTheme)
   },[])
   return (

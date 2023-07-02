@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useCallback, useMemo } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import { twMerge } from "tailwind-merge";
-import {StorageService} from "@/services/storage.service";
+import getStorage from "@/services/getStorage";
 
 const ThemeToggle = () => {
   const { setTheme, theme } = useThemeContext();
@@ -16,7 +16,7 @@ const ThemeToggle = () => {
     () => {
       const toSet = isDark ? "light" : "dark"
       setTheme(toSet)
-      StorageService.saveTheme(toSet)
+      getStorage().saveTheme(toSet)
     },
     [isDark, setTheme]
   );

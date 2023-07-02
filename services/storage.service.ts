@@ -1,29 +1,37 @@
 import {ThemeType} from "@/providers/ThemeProvider";
 import {ICard} from "@/util/types";
 
+export interface IStorage {
+    getItem: any,
+    setItem: any,
+    clear: any
+}
 export class StorageService {
-    private static readonly ThemeKey = 'PickojiTheme'
-    private static readonly EmojiCardsKey = 'PickojiCards'
-    public static getTheme(): ThemeType {
-        const theme: ThemeType | undefined = localStorage.getItem(this.ThemeKey) as ThemeType
+    private readonly ThemeKey = 'PickojiTheme'
+    private readonly EmojiCardsKey = 'PickojiCards'
+
+    constructor(private readonly storageInstance: IStorage) {
+    }
+    getTheme(): ThemeType {
+        const theme: ThemeType | undefined = this.storageInstance.getItem(this.ThemeKey) as ThemeType
         if(theme) {
             return theme === 'light' ? 'light' : 'dark'
         }
         return  'dark'
     }
-    public static saveTheme(currentTheme: ThemeType):void {
-        localStorage.setItem(this.ThemeKey, currentTheme)
+    saveTheme(currentTheme: ThemeType):void {
+        this.storageInstance.setItem(this.ThemeKey, currentTheme)
     }
 
-    public static getSavedEmojiCards():ICard[] {
-        let value = localStorage.getItem(this.EmojiCardsKey)
+    getSavedEmojiCards():ICard[] {
+        let value = this.storageInstance.getItem(this.EmojiCardsKey)
         if(value) {
             const cards: ICard[] = JSON.parse(value)
             return cards?.length && cards.length > 0 ? cards : []
         }
         return []
     }
-    public static saveEmojiCards(emojiCards: ICard[]) {
-        localStorage.setItem(this.EmojiCardsKey, JSON.stringify(emojiCards))
+    saveEmojiCards(emojiCards: ICard[]) {
+        this.storageInstance.setItem(this.EmojiCardsKey, JSON.stringify(emojiCards))
     }
 }

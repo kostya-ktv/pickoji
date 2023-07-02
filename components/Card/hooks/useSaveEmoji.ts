@@ -1,6 +1,5 @@
 import {useCallback, useState} from "react";
 import {ICard} from "@/util/types";
-import {StorageService} from "@/services/storage.service";
 import {useHistoryCards} from "@/providers/EmojiHistoryProvider";
 
 const useSaveEmoji = () => {

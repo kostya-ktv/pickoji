@@ -1,8 +1,7 @@
 "use client";
 import React, {createContext, useCallback, useContext, useEffect, useMemo, useState} from "react";
-import {StorageService} from "@/services/storage.service";
 import {ICard} from "@/util/types";
-import card from "@/components/Card/Card";
+import getStorage from "@/services/getStorage";
 
 
 const EmojiHistoryContext = createContext<{
@@ -17,7 +16,7 @@ const EmojiHistoryProvider: React.FC<Props> = ({children}) => {
     const [emojiHistory, setEmojiHistory] = useState<ICard[]>([]);
 
     useEffect(() => {
-        const cards = StorageService.getSavedEmojiCards()
+        const cards = getStorage().getSavedEmojiCards()
         setEmojiHistory(cards)
     },[])
 
@@ -31,7 +30,7 @@ const EmojiHistoryProvider: React.FC<Props> = ({children}) => {
             }
             cards.unshift(emojiCard)
             setEmojiHistory(cards)
-            StorageService.saveEmojiCards(cards)
+            getStorage().saveEmojiCards(cards)
         }
 
     },[emojiHistory])
