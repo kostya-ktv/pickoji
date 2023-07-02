@@ -5,6 +5,7 @@ import useSaveEmoji from "@/components/Card/hooks/useSaveEmoji";
 import React from "react";
 import '@/components/Card/card.css'
 const HistoryCard:React.FC<{emojiCard: ICard}> = ({emojiCard}) => {
+
     const {isCopied, handleSave} = useSaveEmoji()
     return (
         <Box
