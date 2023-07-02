@@ -12,7 +12,7 @@ describe('storage service test', () => {
         expect(storage instanceof StorageService).toBe(true);
     });
 
-    test('getTheme should retrieve the theme from localStorage', () => {
+    test('getTheme should save and  retrieve the theme from localStorage', () => {
         const savedTheme = 'light';
         localStorage.setItem('PickojiTheme', savedTheme);
 
