@@ -1,4 +1,4 @@
-import {useHistoryCards} from "@/providers/EmojiHistoryProvider";
+import {useHistoryCards} from "@/providers/useHistoryCards";
 import HistoryCard from "@/app/(site)/components/History/HistoryCard";
 
 const History = () => {

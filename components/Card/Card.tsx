@@ -2,7 +2,6 @@
 import { twMerge } from "tailwind-merge";
 import { ICard } from "@/util/types";
 import Box from "../Box/Box";
-import { useState } from "react";
 import "./card.css";
 import useSaveEmoji from "@/components/Card/hooks/useSaveEmoji";
 
@@ -16,6 +15,7 @@ const Card: React.FC<Props> = ({ card }) => {
     <Box
       onClick={() => !isCopied && handleSave(card)}
       className="
+      card
       relative
     aspect-square
     w-[100px]

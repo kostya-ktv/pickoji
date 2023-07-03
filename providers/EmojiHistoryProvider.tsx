@@ -1,15 +1,12 @@
 "use client";
-import React, {createContext, useCallback, useContext, useEffect, useMemo, useState} from "react";
+import React, {createContext, useCallback, useEffect, useMemo, useState} from "react";
 import {ICard} from "@/util/types";
 import getStorage from "@/services/getStorage";
 
-
-const EmojiHistoryContext = createContext<{
+export const EmojiHistoryContext = createContext<{
     emojiHistory?: ICard[];
     pushEmojiToHistory: (card: ICard) => void;
-}>(null as any);
-
-export const useHistoryCards = () => useContext(EmojiHistoryContext);
+}>({ emojiHistory: [], pushEmojiToHistory: () => {}});
 
 interface  Props { children: React.ReactNode }
 const EmojiHistoryProvider: React.FC<Props> = ({children}) => {

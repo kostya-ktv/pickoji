@@ -1,6 +1,6 @@
-import getStorage from "./getStorage";
+import getStorage from "../../services/getStorage";
 import 'mock-local-storage';
-import {StorageService} from "./storage.service";
+import {StorageService} from "@/services/storage.service";
 
 describe('storage service test', () => {
     beforeEach(() => {
@@ -8,7 +8,7 @@ describe('storage service test', () => {
     });
 
     test('getStorage should return an instance of StorageService', () => {
-        const storage = getStorage();
+        const storage = getStorage() as any
         expect(storage instanceof StorageService).toBe(true);
     });
 
